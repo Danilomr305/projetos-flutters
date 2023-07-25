@@ -74,7 +74,8 @@ class _SocialState extends State<Social> {
                       size: 25.0,
                       color: Colors.blue,
                       ),
-                    title:    Text('+55 1234-2345',
+                    title:    
+                    Text('+55 1234-2345',
                         style: TextStyle(
                           color: Colors.blue, 
                           fontFamily: 'Pacifico',
