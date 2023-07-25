@@ -64,6 +64,7 @@ class _SocialState extends State<Social> {
               ),
              // ignore: avoid_unnecessary_containers
               Card(
+                color: Colors.black,
                 margin: EdgeInsets.symmetric(
                   vertical: 10.0,
                   horizontal: 25.0,
