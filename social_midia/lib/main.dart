@@ -93,7 +93,7 @@ class _SocialState extends State<Social> {
                 ),
                   child: ListTile(
                     leading:
-                      Icon(Icons.,
+                      Icon(Icons.mail_lock_rounded,
                       size: 25.0,
                       color: Colors.blue,
                       ),
