@@ -85,6 +85,28 @@ class _SocialState extends State<Social> {
                       ),
                   ),
               ),
+              Card(
+                color: Colors.black,
+                margin: EdgeInsets.symmetric(
+                  vertical: 10.0,
+                  horizontal: 25.0,
+                ),
+                  child: ListTile(
+                    leading:
+                      Icon(Icons.,
+                      size: 25.0,
+                      color: Colors.blue,
+                      ),
+                    title:    
+                      Text('danilomr305@gmail.com',
+                        style: TextStyle(
+                          color: Colors.blue, 
+                          fontFamily: 'Pacifico',
+                          fontSize: 20.0
+                        ),
+                      ),
+                  ),
+              ),
             ],
             ),
           ),
