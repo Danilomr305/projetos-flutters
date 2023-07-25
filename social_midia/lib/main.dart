@@ -33,6 +33,9 @@ class _SocialState extends State<Social> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
+              Padding(
+                padding: EdgeInsets.all(10.0),
+              ),
               CircleAvatar(
                 backgroundImage: AssetImage('imagens/perfil.jpg'),
                 radius: 50.0,  
@@ -46,6 +49,9 @@ class _SocialState extends State<Social> {
                   fontWeight: FontWeight.w900,
                 ),
               ),
+              SizedBox(
+                height: 5.0,
+              ),
               Text(
                 'DESENVOLVEDOR FLUTTER',
                 style: TextStyle(
@@ -56,7 +62,7 @@ class _SocialState extends State<Social> {
                 ),
               ),
                  SizedBox(
-                height: 30.0,
+                height: 15.0,
                 width: 250.0,
                child: Divider(
                 color: Colors.white,
@@ -71,7 +77,7 @@ class _SocialState extends State<Social> {
                 ),
                   child: ListTile(
                     leading:
-                      Icon(Icons.phone_android_sharp,
+                      Icon(Icons.phone_callback,
                       size: 25.0,
                       color: Colors.blue,
                       ),
