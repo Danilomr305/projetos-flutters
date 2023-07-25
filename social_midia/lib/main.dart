@@ -71,7 +71,7 @@ class _SocialState extends State<Social> {
                 ),
                   child: ListTile(
                     leading:
-                      Icon(Icons.phone,
+                      Icon(Icons.phone_android_sharp,
                       size: 25.0,
                       color: Colors.blue,
                       ),
