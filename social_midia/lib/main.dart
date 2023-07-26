@@ -61,7 +61,7 @@ class _SocialState extends State<Social> {
                   fontWeight: FontWeight.w900,
                 ),
               ),
-                 SizedBox(
+                 SizedBox( 
                 height: 15.0,
                 width: 250.0,
                child: Divider(
