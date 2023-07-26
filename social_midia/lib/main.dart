@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -23,8 +25,17 @@ class Social extends StatefulWidget {
   @override
   State<Social> createState() => _SocialState();
 }
-
+ 
 class _SocialState extends State<Social> {
+
+  int fotosTela = 1;
+
+  void alterarFotos () {
+    setState(() {
+      fotosTela = Random().nextInt(2) +1;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return  const Center(
@@ -116,6 +127,20 @@ class _SocialState extends State<Social> {
             ],
             ),
           ),
+      ),
+    );
+    Center(
+      child: Row(
+        children: [
+          Expanded(
+            child: TextButton(
+              onPressed: (){
+                alterarFotos();
+              },
+              child: Image.asset('imagens/$'),
+            ),
+          ),
+        ],
       ),
     );
   } 
