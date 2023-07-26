@@ -99,7 +99,7 @@ class _SocialState extends State<Social> {
                           fontSize: 20.0
                         ),
                       ),
-                  ), 
+                  ),
               ),
               const Card(
                 color: Colors.black,
