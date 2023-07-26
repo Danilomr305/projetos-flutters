@@ -58,7 +58,7 @@ class _SocialState extends State<Social> {
                   color: Colors.black,
                   fontSize: 20.0,
                   letterSpacing: 2.5,
-                  fontWeight: FontWeight.w900,
+                  fontWeight: FontWeight.w900, 
                 ),
               ),
                  SizedBox( 
