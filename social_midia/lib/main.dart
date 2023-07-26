@@ -28,7 +28,7 @@ class _SocialState extends State<Social> {
   @override
   Widget build(BuildContext context) {
     return  const Center(
-      child: Scaffold(
+      child: Scaffold( 
         body: SafeArea(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
