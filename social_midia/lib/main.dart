@@ -1,6 +1,6 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
+
+import 'dart:math';
 
 void main() {
   runApp(
@@ -27,31 +27,30 @@ class Social extends StatefulWidget {
 }
  
 class _SocialState extends State<Social> {
-
   int fotosTela = 1;
 
-  void alterarFotos () {
+  void alterarFotos () { 
     setState(() {
-      fotosTela = Random().nextInt(2) +1;
+      fotosTela = Random().nextInt(3) +1;
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return  const Center(
+    return Center(
       child: Scaffold( 
         body: SafeArea(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-              Padding(
-                padding: EdgeInsets.all(10.0),
+              const Padding(
+                padding: EdgeInsets.all(10.0), 
               ),
-              CircleAvatar(
+              const CircleAvatar(
                 backgroundImage: AssetImage('imagens/perfil.jpg'),
                 radius: 50.0,  
               ),
-              Text(
+              const Text(
                 'Danilo Martins',
                 style: TextStyle(
                   fontFamily: 'Pacifico',
@@ -60,10 +59,10 @@ class _SocialState extends State<Social> {
                   fontWeight: FontWeight.w900,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 5.0,
               ),
-              Text(
+              const Text(
                 'DESENVOLVEDOR FLUTTER',
                 style: TextStyle(
                   color: Colors.black,
@@ -72,7 +71,7 @@ class _SocialState extends State<Social> {
                   fontWeight: FontWeight.w900, 
                 ),
               ),
-                 SizedBox( 
+                 const SizedBox( 
                 height: 15.0,
                 width: 250.0,
                child: Divider(
@@ -80,7 +79,7 @@ class _SocialState extends State<Social> {
                ),
               ),
              // ignore: avoid_unnecessary_containers
-              Card(
+              const Card(
                 color: Colors.black,
                 margin: EdgeInsets.symmetric(
                   vertical: 10.0,
@@ -102,7 +101,7 @@ class _SocialState extends State<Social> {
                       ),
                   ),
               ),
-              Card(
+              const Card(
                 color: Colors.black,
                 margin: EdgeInsets.symmetric(
                   vertical: 10.0,
@@ -124,27 +123,24 @@ class _SocialState extends State<Social> {
                       ),
                   ),
               ),
+            Row(
+              children: [
+                Expanded(
+                  child: TextButton(
+                  onPressed: (){
+                    alterarFotos();
+                    },
+                  child: Image.asset('imagens/$fotosTela.jpg'),
+                  ),
+                ),
+              ],
+            ),
             ],
             ),
           ),
       ),
     );
-    Center(
-      child: Row(
-        children: [
-          Expanded(
-            child: TextButton(
-              onPressed: (){
-                alterarFotos();
-              },
-              child: Image.asset('imagens/$'),
-            ),
-          ),
-        ],
-      ),
-    );
   } 
 }
-
 
  
