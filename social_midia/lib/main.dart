@@ -47,7 +47,7 @@ class _SocialState extends State<Social> {
                 padding: EdgeInsets.all(10.0), 
               ),
               const CircleAvatar(
-                backgroundImage: AssetImage('imagens/perfil.jpg'),
+                backgroundImage: AssetImage('imagen/perfil.jpg'),
                 radius: 50.0,  
               ),
               const Text(
