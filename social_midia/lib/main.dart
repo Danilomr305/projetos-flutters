@@ -82,7 +82,7 @@ class _SocialState extends State<Social> {
               const Card(
                 color: Colors.black,
                 margin: EdgeInsets.symmetric(
-                  vertical: 10.0,  
+                  vertical: 10.0,   
                   horizontal: 25.0, 
                 ),
                   child: ListTile(
