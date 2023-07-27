@@ -123,17 +123,19 @@ class _SocialState extends State<Social> {
                       ),
                   ),
               ),
-            Row(
-              children: [
-                Expanded(
-                  child: TextButton(
-                  onPressed: (){
-                    alterarFotos();
-                    },
-                  child: Image.asset('imagens/$fotosTela.jpg'),
+            Center(
+              child: Row(
+                children: [
+                  Expanded(
+                    child: TextButton(
+                    onPressed: (){
+                      alterarFotos();
+                      },
+                    child: Image.asset('imagens/$fotosTela.jpg'),
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
             ],
             ),
