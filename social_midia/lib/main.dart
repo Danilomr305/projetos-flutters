@@ -43,27 +43,24 @@ class _SocialState extends State<Social> {
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                const Padding(
+              children: const <Widget>[
+                Padding(
                   padding: EdgeInsets.all(15.0), 
                 ),
-                const CircleAvatar(
+                CircleAvatar(
                   backgroundImage: AssetImage('imagen/perfil.jpg'),
                   radius: 50.0,  
                 ),
-                const Text(
-                  'Danilo Martins',
-                  style: TextStyle(
-                    fontFamily: 'Pacifico',
-                    color: Colors.blue,
-                    fontSize: 30.0,
-                    fontWeight: FontWeight.w900,
-                  ),
+                SizedBox(
+                  height: 25,
                 ),
-                const SizedBox(
-                  height: 5.0,
+                Text(
+                  'Danilo Martins'
                 ),
-                const Text(
+                SizedBox(
+                  height: 10,
+                ),
+                Text(
                   'DESENVOLVEDOR FLUTTER',
                   style: TextStyle(
                     color: Colors.black,
@@ -72,15 +69,14 @@ class _SocialState extends State<Social> {
                     fontWeight: FontWeight.w900, 
                   ),
                 ),
-                   const SizedBox( 
+                SizedBox( 
                   height: 15.0,
                   width: 250.0,
                  child: Divider(
                   color: Colors.white,
                  ),
                 ),
-               // ignore: avoid_unnecessary_containers
-                const Card(
+                Card(
                   color: Colors.black,
                   margin: EdgeInsets.symmetric(
                     vertical: 10.0,   
@@ -102,7 +98,7 @@ class _SocialState extends State<Social> {
                         ),
                     ),
                 ),
-                const Card(
+                Card(
                   color: Colors.black,
                   margin: EdgeInsets.symmetric(
                     vertical: 10.0,
