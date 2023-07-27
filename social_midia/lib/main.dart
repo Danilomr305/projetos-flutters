@@ -31,7 +31,7 @@ class _SocialState extends State<Social> {
 
   void alterarFotos () { 
     setState(() {
-      fotosTela = Random().nextInt(3) +1;
+      fotosTela = Random().nextInt(2) +1;
     });
   }
 
@@ -131,7 +131,10 @@ class _SocialState extends State<Social> {
                     onPressed: (){
                       alterarFotos();
                       },
-                    child: Image.asset('imagens/$fotosTela.jpg'),
+                    child: Image.asset(
+                      'imagens/tela$fotosTela.jpg',
+                      height: 350.0,
+                    ),
                     ),
                   ),
                 ],
