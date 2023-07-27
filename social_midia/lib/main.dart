@@ -117,7 +117,7 @@ class _SocialState extends State<Social> {
                       Text('danilomr305@gmail.com',
                         style: TextStyle(
                           color: Colors.blue, 
-                          fontFamily: 'Pacifico',
+                          fontFamily: 'Pacifico', 
                           fontSize: 20.0
                         ),
                       ),
