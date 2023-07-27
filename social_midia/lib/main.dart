@@ -121,7 +121,7 @@ class _SocialState extends State<Social> {
                           fontSize: 20.0
                         ),
                       ),
-                  ),
+                  ), 
               ),
             Center(
               child: Row(
