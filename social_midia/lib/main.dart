@@ -9,8 +9,13 @@ void main() {
       home: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
-          title: const Text('Social Midia'),
-          backgroundColor: Colors.blue.shade800,
+          title: const Text('Social Midia',
+          style: TextStyle(
+            fontSize: 23,
+            fontWeight: FontWeight.w900,
+          ),
+          ),
+          backgroundColor: Colors.blueGrey.shade900,
         ),
         body: const Social(),
       ),
@@ -43,24 +48,29 @@ class _SocialState extends State<Social> {
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
-              children: const <Widget>[
-                Padding(
+              children:  <Widget>[
+                const Padding(
                   padding: EdgeInsets.all(15.0), 
                 ),
-                CircleAvatar(
+                const CircleAvatar(
                   backgroundImage: AssetImage('imagen/perfil.jpg'),
                   radius: 50.0,  
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 25,
                 ),
-                Text(
-                  'Danilo Martins'
+                const Text(
+                  'Danilo Martins',
+                  style: TextStyle(
+                    color: Colors.blue,
+                    fontSize: 30,
+                    fontWeight: FontWeight.w900,
+                  ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
-                Text(
+                const Text(
                   'DESENVOLVEDOR FLUTTER',
                   style: TextStyle(
                     color: Colors.black,
@@ -69,14 +79,14 @@ class _SocialState extends State<Social> {
                     fontWeight: FontWeight.w900, 
                   ),
                 ),
-                SizedBox( 
+                const SizedBox( 
                   height: 15.0,
                   width: 250.0,
                  child: Divider(
                   color: Colors.white,
                  ),
                 ),
-                Card(
+                const Card(
                   color: Colors.black,
                   margin: EdgeInsets.symmetric(
                     vertical: 10.0,   
@@ -98,7 +108,7 @@ class _SocialState extends State<Social> {
                         ),
                     ),
                 ),
-                Card(
+                const Card(
                   color: Colors.black,
                   margin: EdgeInsets.symmetric(
                     vertical: 10.0,
@@ -130,8 +140,7 @@ class _SocialState extends State<Social> {
                         },
                       child: Image.asset(
                         'imagens/tela$fotosTela.jpg',
-                        height: 350.0,
-                      ),
+                        height: 350.0,),
                       ),
                     ),
                   ],
