@@ -1,8 +1,9 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(const MarimbaApp());
-
+void main() {
+  runApp(const MarimbaApp());
+}
 
 class MarimbaApp extends StatelessWidget {
   const MarimbaApp({super.key});
