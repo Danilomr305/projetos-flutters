@@ -32,8 +32,7 @@ dependencies:
     sdk: flutter
 
 
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
+  
   cupertino_icons: ^1.0.2
   audioplayers: ^5.0.0
 
@@ -49,7 +48,6 @@ flutter:
 
   uses-material-design: true
 
-  # To add assets to your application, add an assets section, like this:
   assets:
     - toque/
   
