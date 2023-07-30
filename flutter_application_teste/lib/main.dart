@@ -15,10 +15,9 @@ class MarimbaApp extends StatelessWidget {
         body: SafeArea(
           child: Center( 
             child: TextButton(
-              onPressed: () {
+              onPressed: () async {
                 final player = AudioPlayer();
-                player.play(AssetSource('toque/nota1.wav'),
-                );
+                await player.play(UrlSource('https://www.youtube.com/watch?v=5oJXSpr76vA'));
               }, 
               child:  const Text('Clique em mim!'),
             ),
