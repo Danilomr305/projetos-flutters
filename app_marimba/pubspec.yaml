@@ -20,6 +20,6 @@ flutter:
   uses-material-design: true
 
   assets:
-    - toque/
+    - assets/
      
   
