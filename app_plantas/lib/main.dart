@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+// ignore: unused_import
+import 'helper.dart';
 
 void main() => runApp(const Plantas());
 
@@ -13,6 +15,8 @@ class Plantas extends StatelessWidget {
     );
   }
 }
+
+Helper helper = Helper();
 
 class Clima extends StatefulWidget {
   const Clima({super.key});
@@ -32,6 +36,30 @@ class _ClimaState extends State<Clima> {
               'imagem/fundo.jpg'),
               fit: BoxFit.cover,
             ),
+          ),
+          constraints: const BoxConstraints.expand(),
+        child:  SafeArea(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              Expanded(
+                child: Center(
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 120),
+                    child: Text(
+                      helper.getFrases(),
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        fontSize: 40.0,
+                        color: Colors.white
+                      ),
+                    ),
+                    ),
+                    
+                ),
+              ),
+            ],
+          )
           ),
         ),
       );
