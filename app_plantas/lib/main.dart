@@ -51,18 +51,17 @@ class _ClimaState extends State<Clima> {
                   ),
                     child: ListTile(
                       leading:
-                        const Icon(Icons.phone_callback,
-                        size: 25.0,
+                        const Icon(Icons.ad_units,
                         color: Colors.blue,
                         ),
                       title:    
                         Text(helper.getFrases(),
                         style: const TextStyle(
                           color: Colors.white,
-                          fontSize: 30.0,
+                          fontSize: 25.0,
                           fontWeight: FontWeight.w900,
                         ),
-                        ),
+                      ),  
                     ),
                 ),
             ],
