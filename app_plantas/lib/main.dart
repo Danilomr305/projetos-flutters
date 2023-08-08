@@ -55,8 +55,7 @@ class _ClimaState extends State<Clima> {
                       ),
                     ),
                     ),
-                              
-                ),
+                                   
               ),
             ],
           )
