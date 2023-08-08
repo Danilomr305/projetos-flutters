@@ -48,7 +48,7 @@ class _ClimaState extends State<Clima> {
                   margin: const EdgeInsets.symmetric(
                     vertical: 15.0,   
                     horizontal: 25.0, 
-                  ),   
+                  ),    
                     child: ListTile(
                       leading:
                         const Icon(Icons.ad_units,
