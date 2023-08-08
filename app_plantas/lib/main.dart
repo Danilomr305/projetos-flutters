@@ -40,15 +40,15 @@ class _ClimaState extends State<Clima> {
             ),
           ),
           constraints: const BoxConstraints.expand(),
-        child: const SafeArea(
+        child:  SafeArea(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              Card(
+              const Card(
                   color: Colors.black,
                   margin: EdgeInsets.symmetric(
                     vertical: 15.0,   
-                    horizontal: 28.0, 
+                    horizontal: 35.0, 
                   ),  
                     child:    
                       Text(
@@ -62,12 +62,15 @@ class _ClimaState extends State<Clima> {
                   ),
                 Center(
                   child: Padding(
-                    padding: EdgeInsets.only(top: 120),
+                    padding: const EdgeInsets.only(top: 120),
                     child: Text(
                       helper.getFrases(),
                       textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 25.0
+                      style: const TextStyle(
+                        fontSize: 25.0,
+                        backgroundColor: Colors.blueGrey,
+                        fontWeight: FontWeight.w900,
+                        
                       ),
                     ),
                     ),

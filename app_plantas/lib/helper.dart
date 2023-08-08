@@ -6,7 +6,11 @@ class Helper{
   final List<Frases> _frasesData = [
     Frases(
       frasesTitle: 
-    'Vamos conhecer mais sobre as plantas!!!),')
+      'Vamos conhecer mais sobre as plantas!!!'),
+
+    Frases(
+      frasesTitle: 
+      ''),
   ];
 
   String getFrases() {
