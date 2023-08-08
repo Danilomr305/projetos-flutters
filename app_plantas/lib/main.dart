@@ -46,7 +46,7 @@ class _ClimaState extends State<Clima> {
               Card(
                   color: Colors.black,
                   margin: const EdgeInsets.symmetric(
-                    vertical: 10.0,   
+                    vertical: 15.0,   
                     horizontal: 25.0, 
                   ),
                     child: ListTile(

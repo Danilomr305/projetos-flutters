@@ -5,7 +5,10 @@ class Helper{
   final List<Frases> _frasesData = [
     Frases(
       frasesTitle: 
-      'Olá Amantes de Plantas')
+      'Olá Amantes de Plantas'),
+    Frases(
+      frasesTitle: 
+      'Vamos conhecer mais as sobres as plantas!!!')
   ];
   String getFrases() {
     return _frasesData[_frasesNumber].frasesTitle;
