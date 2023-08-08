@@ -61,7 +61,16 @@ class _ClimaState extends State<Clima> {
                     ),  
                   ),
                 Center(
-                  
+                  child: Padding(
+                    padding: EdgeInsets.only(top: 120),
+                    child: Text(
+                      helper.getFrases(),
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 25.0
+                      ),
+                    ),
+                    ),
                 )
                 ]
               ),
