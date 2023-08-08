@@ -28,6 +28,7 @@ class Clima extends StatefulWidget {
 class _ClimaState extends State<Clima> {
 
   @override
+  // ignore: dead_code
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
@@ -39,34 +40,32 @@ class _ClimaState extends State<Clima> {
             ),
           ),
           constraints: const BoxConstraints.expand(),
-        child: SafeArea(
+        child: const SafeArea(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               Card(
                   color: Colors.black,
-                  margin: const EdgeInsets.symmetric(
+                  margin: EdgeInsets.symmetric(
                     vertical: 15.0,   
-                    horizontal: 25.0, 
+                    horizontal: 28.0, 
                   ),  
-                    child: ListTile(
-                      leading:
-                        const Icon(Icons.ad_units,
-                        color: Colors.blue,
-                        ),
-                      title:    
-                        Text(helper.getFrases(),
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 25.0,
-                          fontWeight: FontWeight.w900,
-                        ),
-                      ),  
-                    ),
-                ),
-            ],
-          )
-          ),
+                    child:    
+                      Text(
+                        'OLÁ AMANTES DE PLANTAS!',
+                        style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 25.0,
+                        fontWeight: FontWeight.w900,
+                      ),
+                    ),  
+                  ),
+                Center(
+                  
+                )
+                ]
+              ),
+            )
         ),
       );
   }
