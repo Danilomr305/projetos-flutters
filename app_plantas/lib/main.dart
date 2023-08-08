@@ -26,6 +26,7 @@ class Clima extends StatefulWidget {
 }
 
 class _ClimaState extends State<Clima> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,25 +39,32 @@ class _ClimaState extends State<Clima> {
             ),
           ),
           constraints: const BoxConstraints.expand(),
-        child:  SafeArea(
+        child: SafeArea(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              Expanded(
-                child: Center(
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 120),
-                    child: Text(
-                      helper.getFrases(),
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        fontSize: 40.0,
-                        color: Colors.white
-                      ),
-                    ),
+              Card(
+                  color: Colors.black,
+                  margin: const EdgeInsets.symmetric(
+                    vertical: 10.0,   
+                    horizontal: 25.0, 
+                  ),
+                    child: ListTile(
+                      leading:
+                        const Icon(Icons.phone_callback,
+                        size: 25.0,
+                        color: Colors.blue,
+                        ),
+                      title:    
+                        Text(helper.getFrases(),
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 30.0,
+                          fontWeight: FontWeight.w900,
+                        ),
+                        ),
                     ),
                 ),
-              ),
             ],
           )
           ),
