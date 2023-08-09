@@ -75,8 +75,41 @@ class _ClimaState extends State<Clima> {
                     ),
                   ),
                   Expanded(
-                    child: Fla,
-                    )
+                    child: TextButton(
+                      onPressed: (){
+                        setState(() {
+                          helper.nextFrase(1);
+                        });
+                      }, 
+                      child: Text(
+                        helper.getChoice1(),
+                        style: const TextStyle(
+                          fontSize: 20.0,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10.0,
+                  ),
+                  Expanded(
+                    child: Visibility(
+                      visible: helper.buttonShouldBeVisible(), 
+                      child: TextButton(
+                        onPressed: (){
+                          setState(() {
+                            helper.nextFrase(2);
+                          });
+                        },
+                        child: Text(
+                          helper.getChoice2(),
+                          style: const TextStyle(
+                            fontSize: 20.0
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
                 ]
               ),
             )

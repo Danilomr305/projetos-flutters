@@ -7,23 +7,45 @@ class Helper{
     Frases(
       frasesTitle: 
       'Vamos conhecer mais sobre as plantas!!!',
-      choice: 'Vamos Começar!'),
+      choice1: 'Vamos Começar!',
+      choice2: ''),
 
-    Frases(frasesTitle:
-     'As Tulipas simbolizam o amor perfeito. Esse simbolismo está muito arraigado com as culturas da Turquia e da Pérsia.', 
-     choice: 'Próxima flor!'),
+    Frases(
+      frasesTitle:
+      'As Tulipas simbolizam o amor perfeito. Esse simbolismo está muito arraigado com as culturas da Turquia e da Pérsia.', 
+      choice1: 'Próxima flor!',
+      choice2: ''),
       
-    Frases(frasesTitle: 
-    'Hoje em dia a orquídea é uma flor que que está associada à sexualidade e beleza feminina.', 
-    choice: 'Próxima flor!')
+    Frases(
+      frasesTitle: 
+      'Hoje em dia a orquídea é uma flor que que está associada à sexualidade e beleza feminina.', 
+      choice1: 'Próxima flor!',
+      choice2: ''),
+    Frases(
+      frasesTitle: 
+      'Rosas. Representa o amor e suas nuances, para cada cor um significado, a Vermelha significa Amor intenso a Branca significa Inocência e beleza a Rosa, Respeito e admiração e a Amarela significa Felicidade e amizade.',
+      choice1: 'Próxima flor!',
+      choice2: ''),
+      Frases(
+        frasesTitle: 
+        'Rosa do Deseto BRIDAL é talvez a rosa do deserto mais procurada pelos colecionadores. De amarelo bem definido e multiplas camadas, todo colecionador ou apaixonado pelas rosas do deserto deve ter na sua coleção.', 
+        choice1: 'Próxima flor!', 
+        choice2: ''),
   ];
 
-  String getFrases() {
+
+  String getFrases(){
     return _frasesData[_frasesNumber].frasesTitle;
   }
 
-  String getChoice(){
-    return _frasesData[_frasesNumber].choice;
+  
+
+  String getChoice1(){
+    return _frasesData[_frasesNumber].choice1;
+  }
+
+  String getChoice2(){
+    return _frasesData[_frasesNumber].choice2;
   }
 
   int _frasesNumber = 0;
@@ -50,5 +72,13 @@ class Helper{
 void restart(){
       _frasesNumber = 0;
     }
+
+    bool buttonShouldBeVisible(){
+      if(_frasesNumber == 0 || _frasesNumber == 1 ||_frasesNumber ==  2){
+        return true;
+      }else{
+        return false;
+      }
     }
+}
 
