@@ -84,7 +84,7 @@ class _ClimaState extends State<Clima> {
                       child: Text(
                         helper.getChoice1(),
                         style: const TextStyle(
-                          fontSize: 20.0,
+                          fontSize: 25.0,
                           color: Colors.white,
                           fontWeight: FontWeight.w900,
                         ),
@@ -92,7 +92,7 @@ class _ClimaState extends State<Clima> {
                     ),
                   ),
                   const SizedBox(
-                    height: 20.0,
+                    height: 30.0,
                   ),
                   Expanded(
                     child: Visibility(
