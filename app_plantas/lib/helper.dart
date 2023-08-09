@@ -48,14 +48,14 @@ class Helper{
 
   int _frasesNumber = 0;
 
-    void nextFrase(int userFrase){
-    if(userFrase == 1 && _frasesNumber == 0) {
+    void nextFrase(int userFrases){
+    if(userFrases == 1 && _frasesNumber == 0) {
       _frasesNumber = 2;
-    }else if (userFrase == 2 && _frasesNumber == 0) {
+    }else if (userFrases == 2 && _frasesNumber == 0) {
       _frasesNumber = 1;
-    } else if (userFrase == 1 && _frasesNumber == 1) {
+    } else if (userFrases == 1 && _frasesNumber == 1) {
       _frasesNumber = 3;
-    } else if (userFrase == 2 && _frasesNumber == 1) {
+    } else if (userFrases == 2 && _frasesNumber == 1) {
       _frasesNumber = 6;
     } else if (userFrase == 1 && _frasesNumber == 2) {
       _frasesNumber = 5;
