@@ -47,7 +47,7 @@ class _ClimaState extends State<Clima> {
               const Card(
                   color: Colors.black,
                   margin: EdgeInsets.symmetric(
-                    vertical: 15.0,   
+                    vertical: 45.0,   
                     horizontal: 35.0, 
                   ),  
                     child:    
@@ -62,7 +62,7 @@ class _ClimaState extends State<Clima> {
                   ),
                 Center(
                   child: Padding(
-                    padding: const EdgeInsets.only(top: 120),
+                    padding: const EdgeInsets.only(top: 180),
                     child: Text(
                       helper.getFrases(),
                       textAlign: TextAlign.center,
@@ -90,7 +90,7 @@ class _ClimaState extends State<Clima> {
                     ),
                   ),
                   const SizedBox(
-                    height: 10.0,
+                    height: 20.0,
                   ),
                   Expanded(
                     child: Visibility(
@@ -103,9 +103,6 @@ class _ClimaState extends State<Clima> {
                         },
                         child: Text(
                           helper.getChoice2(),
-                          style: const TextStyle(
-                            fontSize: 20.0
-                          ),
                         ),
                       ),
                     ),
