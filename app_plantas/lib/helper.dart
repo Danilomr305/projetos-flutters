@@ -23,7 +23,7 @@ class Helper{
       choice2: ''),
     Frases(
       frasesTitle: 
-      'Rosas. Representa o amor e suas nuances, para cada cor um significado, a Vermelha significa Amor intenso a Branca significa Inocência e beleza a Rosa, Respeito e admiração e a Amarela significa Felicidade e amizade.',
+      'Rosas, Representa o amor e suas nuances, para cada cor um significado, a Vermelha significa Amor intenso a Branca significa Inocência e beleza a Rosa, Respeito e admiração e a Amarela significa Felicidade e amizade.',
       choice1: 'Próxima flor!',
       choice2: ''),
       Frases(
