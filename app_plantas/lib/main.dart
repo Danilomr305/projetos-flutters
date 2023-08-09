@@ -85,7 +85,7 @@ class _ClimaState extends State<Clima> {
                         helper.getChoice1(),
                         style: const TextStyle(
                           fontSize: 20.0,
-                            color: Colors.white,
+                          color: Colors.white,
                             fontWeight: FontWeight.w900
                         ),
                       ),
