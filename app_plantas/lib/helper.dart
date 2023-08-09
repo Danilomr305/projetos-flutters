@@ -57,7 +57,7 @@ class Helper{
       _frasesNumber = 3;
     } else if (userFrases == 2 && _frasesNumber == 1) {
       _frasesNumber = 6;
-    } else if (userFrase == 1 && _frasesNumber == 2) {
+    } else if (userFrases == 1 && _frasesNumber == 2) {
       _frasesNumber = 5;
     } else if (userFrase == 2 && _frasesNumber == 2) {
       _frasesNumber = 4;
