@@ -38,8 +38,6 @@ class Helper{
     return _frasesData[_frasesNumber].frasesTitle;
   }
 
-  
-
   String getChoice1(){
     return _frasesData[_frasesNumber].choice1;
   }
