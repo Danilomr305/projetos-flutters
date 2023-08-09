@@ -86,7 +86,7 @@ class _ClimaState extends State<Clima> {
                         style: const TextStyle(
                           fontSize: 20.0,
                           color: Colors.white,
-                          fontWeight: FontWeight.w900
+                          fontWeight: FontWeight.w900,
                         ),
                       ),
                     ),
