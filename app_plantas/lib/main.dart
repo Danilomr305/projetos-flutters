@@ -79,7 +79,7 @@ class _ClimaState extends State<Clima> {
                       onPressed: (){
                         setState(() {
                           helper.nextFrase(1);
-                        });
+                        }); 
                       },   
                       child: Text(
                         helper.getChoice1(),
