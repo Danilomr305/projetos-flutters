@@ -50,7 +50,7 @@ class Helper{
 
     void nextFrase(int userFrases){
     if(userFrases == 1 && _frasesNumber == 0) {
-      _frasesNumber = 2;
+      _frasesNumber = 1;
     }else if (userFrases == 2 && _frasesNumber == 0) {
       _frasesNumber = 1;
     } else if (userFrases == 1 && _frasesNumber == 1) {
