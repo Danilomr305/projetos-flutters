@@ -80,7 +80,7 @@ class _ClimaState extends State<Clima> {
                         setState(() {
                           helper.nextFrase(1);
                         });
-                      },     
+                      },      
                       child: Text(
                         helper.getChoice1(),
                         style: const TextStyle(
