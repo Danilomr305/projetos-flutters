@@ -22,6 +22,33 @@ class Helper{
     return _frasesData[_frasesNumber].frasesTitle;
   }
 
-  final int _frasesNumber = 0;
+  String getChoice(){
+    return _frasesData[_frasesNumber].choice;
+  }
+
+  int _frasesNumber = 0;
+
+    void nextFrase(int userFrase){
+    if(userFrase == 1 && _frasesNumber == 0) {
+      _frasesNumber = 2;
+    }else if (userFrase == 2 && _frasesNumber == 0) {
+      _frasesNumber = 1;
+    } else if (userFrase == 1 && _frasesNumber == 1) {
+      _frasesNumber = 3;
+    } else if (userFrase == 2 && _frasesNumber == 1) {
+      _frasesNumber = 6;
+    } else if (userFrase == 1 && _frasesNumber == 2) {
+      _frasesNumber = 5;
+    } else if (userFrase == 2 && _frasesNumber == 2) {
+      _frasesNumber = 4;
+    }
+    else if(_frasesNumber == 3 || _frasesNumber == 4 || _frasesNumber == 5 || _frasesNumber == 6){
+      restart();
+    }
 }
+
+void restart(){
+      _frasesNumber = 0;
+    }
+    }
 

@@ -70,11 +70,13 @@ class _ClimaState extends State<Clima> {
                         fontSize: 25.0,
                         backgroundColor: Colors.blueGrey,
                         fontWeight: FontWeight.w900,
-                        
                       ),
                     ),
                     ),
-                )
+                  ),
+                  Expanded(
+                    child: Fla,
+                    )
                 ]
               ),
             )
