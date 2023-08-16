@@ -45,27 +45,27 @@ class FloresRepository {
       ),
 
       Flor(
-        nome ,
-        brasao: ,
-        cor: ,
+        nome: 'Jiboia',
+        brasao: 'https://i.pinimg.com/564x/9d/0b/28/9d0b28be4b77b36b8a3cfbab252464a0.jpg',
+        cor: Colors.green,
       ),
 
       Flor(
-        nome ,
-        brasao: ,
-        cor: ,
+        nome: 'Espada_de_São_Jorge' ,
+        brasao: 'https://i.pinimg.com/564x/d5/cf/79/d5cf79c3ccad399c59b8c4ef4a1c0e24.jpg',
+        cor: Colors.yellow,
       ),
 
       Flor(
-        nome ,
-        brasao: ,
-        cor: ,
+        nome: 'Costela de Adão',
+        brasao: 'https://i.pinimg.com/564x/73/6a/be/736abe0c97c51d445a10502bc6641cc8.jpg',
+        cor: Colors.green,
       ),
 
       Flor(
-        nome ,
+        nome: 'Zamioculas' ,
         brasao: ,
-        cor: ,
+        cor: Colors.geen,
       ),
 
       Flor(
