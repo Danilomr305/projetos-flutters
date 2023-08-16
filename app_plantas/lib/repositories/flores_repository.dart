@@ -43,7 +43,7 @@ class FloresRepository {
         brasao: brasao, 
         cor: cor,
       ),
-    ]
+    ] 
   );
   }
 }
