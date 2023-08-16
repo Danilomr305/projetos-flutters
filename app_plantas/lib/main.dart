@@ -1,118 +1,25 @@
 import 'package:flutter/material.dart';
-// ignore: unused_import
-import 'helper.dart';
 
-void main() => runApp(const Plantas());
+void main() => runApp(const MeuApp());
 
-
-class Plantas extends StatelessWidget {
-  const Plantas({super.key});
+class MeuApp extends StatefulWidget {
+  const MeuApp({super.key});
 
   @override
+  State<MeuApp> createState() => _MeuAppState();
+}
+
+class _MeuAppState extends State<MeuApp> {
+  @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Clima(),
+    return MaterialApp(
+      title: 'App PLantas',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primaryColor: Colors.lightBlue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      home: const HomeFlor(),
     );
   }
 }
-
-Helper helper = Helper();
-
-class Clima extends StatefulWidget {
-  const Clima({super.key});
-
-  @override
-  State<Clima> createState() => _ClimaState();
-}
-
-class _ClimaState extends State<Clima> {
-
-  @override
-  // ignore: dead_code
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage(
-              'imagem/fundo.jpg'),
-              fit: BoxFit.cover,
-            ),
-          ),
-          constraints: const BoxConstraints.expand(),
-        child:  SafeArea(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-              const Card(
-                  color: Colors.black,
-                  margin: EdgeInsets.symmetric(
-                    vertical: 45.0,   
-                    horizontal: 35.0, 
-                  ),  
-                    child:    
-                      Text(
-                        'OLÁ AMANTES DE PLANTAS!',
-                        style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 25.0,
-                        fontWeight: FontWeight.w900,
-                      ),
-                    ),  
-                  ),
-                Center(
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 180),
-                    child: Text(
-                      helper.getFrases(),
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        fontSize: 25.0,
-                        backgroundColor: Colors.blueGrey,
-                        fontWeight: FontWeight.w900,
-                      ),
-                    ),
-                    ),
-                  ),
-                  Expanded(
-                    child: TextButton(
-                      onPressed: (){
-                        setState(() {
-                          helper.nextFrase(1);
-                        }); 
-                      },   
-                      child: Text(
-                        helper.getChoice1(),
-                        style: const TextStyle(
-                          fontSize: 25.0,
-                          color: Colors.white,
-                          fontWeight: FontWeight.w900,
-                        ),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 30.0,
-                  ),
-                  Expanded(
-                    child: Visibility(
-                      visible: helper.buttonShouldBeVisible(), 
-                      child: TextButton(
-                        onPressed: (){
-                          setState(() {
-                            helper.nextFrase(2);
-                          });
-                        },
-                        child: Text(
-                          helper.getChoice2(),
-                        ),
-                      ),
-                    ),
-                  ),
-                ]
-              ),
-            )
-        ),
-      );
-  }
-}     
