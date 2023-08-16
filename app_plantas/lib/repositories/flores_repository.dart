@@ -93,27 +93,27 @@ class FloresRepository {
       ),
 
       Flor(
-        nome: ,
-        brasao: ,
-        cor: ,
+        nome: 'Flor-da-fortuna',
+        brasao: 'https://i.pinimg.com/564x/27/54/96/275496dc87c7568aa8f51d06fd26fb0e.jpg',
+        cor: Colors.yellow,
       ),
 
       Flor(
-        nome: ,
-        brasao: ,
-        cor: ,
+        nome: 'Peperômia filodendro',
+        brasao: 'https://i.pinimg.com/564x/be/69/11/be69112ee7e1a23eb7ac311b2f0ea09c.jpg',
+        cor: Colors.white,
       ),
 
       Flor(
-        nome ,
-        brasao: ,
-        cor: ,
+        nome: 'Violeta',
+        brasao: 'https://i.pinimg.com/564x/d5/54/dd/d554dde106d987ca70b4b4618e00bf05.jpg',
+        cor: Colors.purple,
       ),
 
       Flor(
-        nome ,
-        brasao: ,
-        cor: ,
+        nome: 'Lirio-da-paz',
+        brasao: 'https://i.pinimg.com/736x/b5/4b/af/b54baf60e5174103fb2be4622ea16b75.jpg',
+        cor: Colors.yellow.shade200,
       ),
     ]   
   );      
