@@ -115,6 +115,12 @@ class FloresRepository {
         brasao: 'https://i.pinimg.com/736x/b5/4b/af/b54baf60e5174103fb2be4622ea16b75.jpg',
         cor: Colors.yellow.shade200,
       ),
+
+      Flor(
+        nome: 'Comigo-Ninguém-Pode ' ,
+        brasao: 'https://i.pinimg.com/736x/3f/40/c0/3f40c08670cd18417be094120c9ecffb.jpg', 
+        cor: Colors.green.shade300,
+      ),
     ]   
   );      
   } 
