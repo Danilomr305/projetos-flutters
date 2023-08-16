@@ -44,6 +44,6 @@ class FloresRepository {
         cor: cor,
       ),
     ]   
-  );   
+  );    
   } 
 }  
