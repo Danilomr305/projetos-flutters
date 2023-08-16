@@ -39,9 +39,81 @@ class FloresRepository {
       ),
 
       Flor(
-        nome: nome, 
-        brasao: brasao, 
-        cor: cor,
+        nome: ' Samambaia', 
+        brasao: 'https://i.pinimg.com/564x/80/2a/bf/802abfda722dd54e425b6f6fbc7505aa.jpg', 
+        cor: Colors.green,
+      ),
+
+      Flor(
+        nome ,
+        brasao: ,
+        cor: ,
+      ),
+
+      Flor(
+        nome ,
+        brasao: ,
+        cor: ,
+      ),
+
+      Flor(
+        nome ,
+        brasao: ,
+        cor: ,
+      ),
+
+      Flor(
+        nome ,
+        brasao: ,
+        cor: ,
+      ),
+
+      Flor(
+        nome ,
+        brasao: ,
+        cor: ,
+      ),
+
+      Flor(
+        nome ,
+        brasao: ,
+        cor: ,
+      ),
+
+      Flor(
+        nome ,
+        brasao: ,
+        cor: ,
+      ),
+
+      Flor(
+        nome ,
+        brasao: ,
+        cor: ,
+      ),
+
+      Flor(
+        nome ,
+        brasao: ,
+        cor: ,
+      ),
+
+      Flor(
+        nome ,
+        brasao: ,
+        cor: ,
+      ),
+
+      Flor(
+        nome ,
+        brasao: ,
+        cor: ,
+      ),
+
+      Flor(
+        nome ,
+        brasao: ,
+        cor: ,
       ),
     ]   
   );      
