@@ -20,152 +20,29 @@ class FloresRepository {
 
   FloresRepository() {
     _flores.addAll([
-    Flor(
-      nome: nome, 
-      altura: altura, 
-      brasao: '', 
-      cor: cor,
-    ),
+      Flor(
+        nome: 'Girassol Vermelha',
+         brasao: 'https://i.pinimg.com/originals/9b/cd/8f/9bcd8fcd2ef0b4292ba721437a0ef715.jpg',
+          cor: Colors.red.shade300,
+      ),
 
-    Flor(
-      nome: nome, 
-      altura: altura, 
-      brasao: brasao, 
-      cor: cor,
-    ),
+      Flor(
+        nome: 'Girassol Amarelo', 
+        brasao: 'https://i.pinimg.com/564x/98/4e/fc/984efc9bcd44921a166d55944bcfa8a2.jpg', 
+        cor: Colors.yellow.shade300,
+      ),
 
-    Flor(
-      nome: nome, 
-      altura: altura, 
-      brasao: brasao, 
-      cor: cor,
-    ),
+      Flor(
+        nome: 'dieffenbachia', 
+        brasao: 'https://i.pinimg.com/564x/e4/30/3c/e4303ce1995563bd9d77358b39eb8b80.jpg', 
+        cor: Colors.green.shade300,
+      ),
 
-    Flor(
-      nome: nome, 
-      altura: altura, 
-      brasao: brasao, 
-      cor: cor,
-    ),
-
-    Flor(
-      nome: nome, 
-      altura: altura, 
-      brasao: brasao, 
-      cor: cor,
-    ),
-
-    Flor(
-      nome: nome, 
-      altura: altura, 
-      brasao: brasao, 
-      cor: cor,
-    ),
-
-    Flor(
-      nome: nome, 
-      altura: altura, 
-      brasao: brasao, 
-      cor: cor,
-    ),
-
-    Flor(
-      nome: nome, 
-      altura: altura, 
-      brasao: brasao, 
-      cor: cor,
-    ),
-
-    Flor(
-      nome: nome, 
-      altura: altura, 
-      brasao: brasao, 
-      cor: cor,
-    ),
-
-    Flor(
-      nome: nome, 
-      altura: altura, 
-      brasao: brasao, 
-      cor: cor,
-    ),
-
-    Flor(
-      nome: nome, 
-      altura: altura, 
-      brasao: brasao, 
-      cor: cor,
-    ),
-
-    Flor(
-      nome: nome, 
-      altura: altura, 
-      brasao: brasao, 
-      cor: cor,
-    ),
-
-    Flor(
-      nome: nome, 
-      altura: altura, 
-      brasao: brasao, 
-      cor: cor,
-    ),
-
-    Flor(
-      nome: nome, 
-      altura: altura, 
-      brasao: brasao, 
-      cor: cor,
-    ),
-
-    Flor(
-      nome: nome, 
-      altura: altura, 
-      brasao: brasao, 
-      cor: cor,
-    ),
-
-    Flor(
-      nome: nome, 
-      altura: altura, 
-      brasao: brasao, 
-      cor: cor,
-    ),
-
-    Flor(
-      nome: nome, 
-      altura: altura, 
-      brasao: brasao, 
-      cor: cor,
-    ),
-
-    Flor(
-      nome: nome, 
-      altura: altura, 
-      brasao: brasao, 
-      cor: cor,
-    ),
-
-    Flor(
-      nome: nome, 
-      altura: altura, 
-      brasao: brasao, 
-      cor: cor,
-    ),
-
-    Flor(
-      nome: nome, 
-      altura: altura, 
-      brasao: brasao, 
-      cor: cor,
-    ),
-
-    Flor(
-      nome: nome, 
-      altura: altura, 
-      brasao: brasao, 
-      cor: cor,
-    ),
+      Flor(
+        nome: nome, 
+        brasao: brasao, 
+        cor: cor,
+      ),
     ]
   );
   }

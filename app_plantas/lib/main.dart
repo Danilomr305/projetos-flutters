@@ -1,3 +1,4 @@
+import 'package:app_plantas/pages/home_flor.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const MeuApp());
