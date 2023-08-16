@@ -64,42 +64,42 @@ class FloresRepository {
 
       Flor(
         nome: 'Zamioculas' ,
-        brasao: ,
-        cor: Colors.geen,
+        brasao: 'https://i.pinimg.com/564x/fc/19/15/fc1915102d6069eb9addbc5d6c1c02f5.jpg',
+        cor: Colors.green,
       ),
 
       Flor(
-        nome ,
+        nome: 'Orquieda',
+        brasao: 'https://i.pinimg.com/564x/97/9b/9c/979b9ca75cc656080b208a19593eb0df.jpg',
+        cor: Colors.white,
+      ),
+
+      Flor(
+        nome: 'Palmeira Ráfia',
+        brasao: 'https://i.pinimg.com/564x/10/1e/8e/101e8e7ce09c6a22d98a9d98aba26764.jpg',
+        cor: Colors.brown,
+      ),
+
+      Flor(
+        nome: 'Maranta tricolor',
+        brasao: 'https://i.pinimg.com/736x/76/f3/b8/76f3b88a4405b8b66d3efb09ea297a29.jpg',
+        cor: Colors.pink,
+      ),
+
+      Flor(
+        nome: 'Zamioculca',
+        brasao: 'https://i.pinimg.com/564x/66/17/1e/66171ecc6ab389897345df62041f882c.jpg',
+        cor: Colors.green.shade900,
+      ),
+
+      Flor(
+        nome: ,
         brasao: ,
         cor: ,
       ),
 
       Flor(
-        nome ,
-        brasao: ,
-        cor: ,
-      ),
-
-      Flor(
-        nome ,
-        brasao: ,
-        cor: ,
-      ),
-
-      Flor(
-        nome ,
-        brasao: ,
-        cor: ,
-      ),
-
-      Flor(
-        nome ,
-        brasao: ,
-        cor: ,
-      ),
-
-      Flor(
-        nome ,
+        nome: ,
         brasao: ,
         cor: ,
       ),
