@@ -24,10 +24,6 @@ class _FlorPageState extends State<FlorPage> {
   // ignore: prefer_typing_uninitialized_variables
   var addTitulo;
 
-  // ignore: prefer_typing_uninitialized_variables
-  
-
-  // ignore: prefer_typing_uninitialized_variables
   tituloPage() {
     Navigator.push(
       context,
@@ -46,6 +42,9 @@ class _FlorPageState extends State<FlorPage> {
       });
 
       Navigator.pop(context);
+
+      ScaffoldMessenger.of(context).
+        showSnackBar(const SnackBar(content: Text('Salva com sucesso')));
     }}
   }
   @override
@@ -55,6 +54,7 @@ class _FlorPageState extends State<FlorPage> {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: widget.flor.cor,
+          title:  Text(widget.flor.nome),
           actions: [IconButton(
             icon: const Icon(Icons.add),
             onPressed: tituloPage,),
@@ -98,6 +98,7 @@ class _FlorPageState extends State<FlorPage> {
     );
   }
   Widget titulos() {
+
     final quantidade = widget.flor.titulo.length;
 
     return quantidade == 0
