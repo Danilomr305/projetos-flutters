@@ -29,11 +29,11 @@ class _FlorPageState extends State<FlorPage> {
       MaterialPageRoute(
         builder: (_) => AddTituloPage(
           flor: widget.flor, 
-          // ignore: unnecessary_this
           onSave: this.addTitulo),
       ),
     );
 
+    
     // ignore: unused_element
     addTitulo(Titulo titulo) {{
       setState(() {
