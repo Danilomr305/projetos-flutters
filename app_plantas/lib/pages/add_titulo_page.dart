@@ -111,7 +111,8 @@ class _AddTituloPageState extends State<AddTituloPage> {
               ),
             ),
           ],
-        )),
+        )
+      ),
     );
   }
 }
