@@ -24,18 +24,20 @@ class _FlorPageState extends State<FlorPage> {
  
 
   tituloPage() {
+  
     Navigator.push(
       context,
       MaterialPageRoute(
         builder: (_) => AddTituloPage(
           flor: widget.flor, 
+          // ignore: unnecessary_this
           onSave: this.addTitulo),
       ),
     );
-
+  }
      
     // ignore: unused_element
-    addTitulo(Titulo titulo) {{
+    addTitulo(Titulo titulo) {
       setState(() {
         widget.flor.titulo.add(titulo);
       });
@@ -44,8 +46,8 @@ class _FlorPageState extends State<FlorPage> {
 
       ScaffoldMessenger.of(context).
         showSnackBar(const SnackBar(content: Text('Salva com sucesso')));
-    }}
-  }
+    }
+  
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -78,7 +80,7 @@ class _FlorPageState extends State<FlorPage> {
               children: [
                 Padding(
                   padding: const EdgeInsets.all(24),
-                  child: Image.network(widget.flor.brasao.replaceAll("40x40", "100x100"),
+                  child: Image.network(widget.flor.brasao.replaceAll("40x40", "85x85 "),
                   ),
                 ),
                 Text(
