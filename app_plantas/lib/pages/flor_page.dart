@@ -21,8 +21,7 @@ class FlorPage extends StatefulWidget {
 }
 
 class _FlorPageState extends State<FlorPage> {
-  // ignore: prefer_typing_uninitialized_variables
-  var addTitulo;
+ 
 
   tituloPage() {
     Navigator.push(

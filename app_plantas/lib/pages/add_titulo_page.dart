@@ -13,7 +13,6 @@ class AddTituloPage extends StatefulWidget {
     Key? key,
     required this.flor,
     required this.onSave,
-
   }) :super(key: key);
 
   @override

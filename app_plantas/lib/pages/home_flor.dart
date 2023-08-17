@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 // ignore: unused_import
 import '../models/flor.dart';
 // ignore: unused_import
+import 'flor_page.dart';
 import 'home_controller.dart';
 
 class HomeFlor extends StatefulWidget {
@@ -47,8 +48,15 @@ class _HomeFlorState extends State<HomeFlor> {
 
             title: 
             Text(
-              danilo[flor].nome
-            ),  
+              danilo[flor].nome.toString(),
+            ),
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (_) => FlorPage(
+                key: Key(danilo[flor].nome),
+                flor: danilo[flor],)
+                ),
+              );
+            },  
           );
         }, 
         separatorBuilder: (_, __) => const Divider(),
