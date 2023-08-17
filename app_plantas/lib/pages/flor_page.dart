@@ -74,7 +74,7 @@ class _FlorPageState extends State<FlorPage> {
           ),
         ),
         body: TabBarView(
-          children: [
+          children: [ 
             Column(  
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
