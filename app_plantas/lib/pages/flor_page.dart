@@ -90,7 +90,7 @@ class _FlorPageState extends State<FlorPage> {
                     fontSize: 22,
                     fontWeight: FontWeight.w800,
                   ),
-                ) 
+                ),
               ],
             ),
             titulos()
