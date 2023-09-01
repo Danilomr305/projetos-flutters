@@ -10,7 +10,16 @@ class TelaInicial extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: ,
+      home: Scaffold(
+        backgroundColor: Colors.white,
+        body: Center(
+          child: Image(
+            image: AssetImage('imagens/cs.jpg',
+            )
+          ),
+        ),
+        
+      ),
     );
   }
 }
