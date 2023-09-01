@@ -14,7 +14,15 @@ class Primeira extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomeCasa(),
+      home: Scaffold(
+        body: Center(
+          child: Image(
+            image: AssetImage(
+              'imagen/casas.png'
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
