@@ -54,13 +54,15 @@ class LoginPage extends StatelessWidget {
               ),
             ),
             Container(
-              color: Colors.white,
+              height: 40,
               alignment: Alignment.centerRight,
               child: ElevatedButton(
                   child: const Text(
                     'Recuperar Senhar',
+                    textAlign: TextAlign.right,
                     style: TextStyle(
-                        fontWeight: FontWeight.w400, color: Colors.black),
+                        fontWeight: FontWeight.w400, 
+                      ),
                   ),
                   onPressed: () {}),
             ),
@@ -122,7 +124,7 @@ class LoginPage extends StatelessWidget {
               decoration: const BoxDecoration(
                 color: Color(0xFF3C5A99),
                 borderRadius:  BorderRadius.all(
-                  Radius.circular(5),
+                  Radius.circular(10),
                 ),
               ),
               child: SizedBox.expand(
