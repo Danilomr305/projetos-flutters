@@ -59,9 +59,11 @@ class LoginPage extends StatelessWidget {
               child: ElevatedButton(
                   child: const Text(
                     'Recuperar Senhar',
+
                     textAlign: TextAlign.right,
                     style: TextStyle(
-                        fontWeight: FontWeight.w400, 
+                        fontWeight: FontWeight.w400,
+                        backgroundColor: Colors.black12
                       ),
                   ),
                   onPressed: () {}),

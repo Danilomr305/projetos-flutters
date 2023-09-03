@@ -14,7 +14,7 @@ class TelaInicial extends StatelessWidget {
       title: 'Casa App',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch:Colors.white),
+        primarySwatch:Colors.indigo),
 
         home: const LoginPage(),
         );
