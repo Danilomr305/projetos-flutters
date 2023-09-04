@@ -9,19 +9,19 @@ import '../models/casa.dart';
     CasaRepository() {
       
       Casa(
-        nome: nome, 
-        brasao: brasao
-      ),
+        nome: '1. Arrumar a cama', 
+        brasao: '',
+      );
 
       Casa(
-        nome: nome, 
-        brasao: brasao
-      ),
+        nome: '2. Limpar a cozinha ', 
+        brasao: '',
+      );
 
       Casa(
-        nome: nome, 
-        brasao: brasao
-      ),
+        nome: '', 
+        brasao: '',
+      );
 
       Casa(
         nome: nome, 
