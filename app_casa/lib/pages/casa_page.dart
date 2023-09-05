@@ -62,11 +62,11 @@ class _CasaPageState extends State<CasaPage> {
           bottom: const TabBar(tabs: [
            Tab(
              icon: Icon(Icons.stacked_line_chart),
-             text: 'Planta',
+             text: 'Atividade',
            ),
            Tab(
              icon: Icon(Icons.stacked_line_chart),
-             text: 'Caracteristica',
+             text: 'Conclusão',
            ),
           ],
           indicatorColor: Colors.white,
@@ -79,7 +79,7 @@ class _CasaPageState extends State<CasaPage> {
               children: [
                 Padding(  
                   padding: const EdgeInsets.all(24),
-                  child: Image.network(widget.casa.brasao.replaceAll("40x40", "85x60"), 
+                  child: Image.network(widget.casa.brasao.replaceAll("40x40", "41x41"), 
                   ),
                 ),
                 Text(

@@ -67,7 +67,7 @@ class _AddTituloPageState extends State<AddTituloPage> {
                 keyboardType: TextInputType.multiline,
                 validator: (value) {
                   if (value!.isEmpty) {
-                    return 'Informe o dia da semana que você fes essa atividade!';
+                    return 'Informe o dia da semana que você fez essa atividade!';
                   }
                   return null;
                 }
