@@ -1,4 +1,5 @@
 // ignore: unused_import
+import 'package:app_casa/pages/segtela.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
@@ -170,7 +171,14 @@ class LoginPage extends StatelessWidget {
                 child: const Text("Cadastre-se",
                 textAlign: TextAlign.center,
                 ),
-                onPressed: () => {},
+                onPressed: () => {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const HomeCasa(),
+                    ),
+                  ),
+                },
               ),
             )
           ],
