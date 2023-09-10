@@ -61,11 +61,11 @@ class _CasaPageState extends State<CasaPage> {
           ],
           bottom: const TabBar(tabs: [
            Tab(
-             icon: Icon(Icons.stacked_line_chart),
+             icon: Icon(Icons.add_a_photo_outlined),
              text: 'Atividade',
            ),
            Tab(
-             icon: Icon(Icons.stacked_line_chart),
+             icon: Icon(Icons.access_alarm_outlined),
              text: 'Conclusão',
            ),
           ],

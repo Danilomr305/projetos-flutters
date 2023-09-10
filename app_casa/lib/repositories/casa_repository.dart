@@ -28,7 +28,7 @@ import '../models/atividade.dart';
 
       Casa(
         nome: '2. Limpar a cozinha ', 
-        brasao: 'https://images.pexels.com/photos/8580763/pexels-photo-8580763.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        brasao: 'https://i.pinimg.com/564x/7e/0d/1a/7e0d1a0f31c6d025f44c2c18e6c45255.jpg',
       ),
 
       Casa(
@@ -68,7 +68,7 @@ import '../models/atividade.dart';
 
       Casa(
         nome: '10. Trocar a roupa de cama', 
-        brasao: 'https://images.pexels.com/photos/5331120/pexels-photo-5331120.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        brasao: 'https://i.pinimg.com/564x/89/ad/67/89ad67c1bcbbabae910cb521ba1b2726.jpg',
       ),
     ]   
   );  
