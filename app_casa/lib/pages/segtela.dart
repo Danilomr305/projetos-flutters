@@ -16,11 +16,20 @@ class HomeCasa extends StatefulWidget {
 class _HomeCasaState extends State<HomeCasa> {
   // ignore: prefer_typing_uninitialized_variables
   var controller;
-
-  @override
+  int paginaAtual = 0;
+  late PageController pc;
+  
+   @override
   void initState() { 
     super.initState(); 
     controller = Home();
+    pc = PageController(initialPage: paginaAtual);
+  }
+
+  setPaginaAtual(pagina) {
+    setState(() {
+      paginaAtual = pagina;
+    });
   }
 
   
@@ -62,6 +71,27 @@ class _HomeCasaState extends State<HomeCasa> {
         }, 
         separatorBuilder: (_, __) => const Divider(),
         padding: const EdgeInsets.all(16),   
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: paginaAtual,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.list_alt_outlined),
+            label: 'Atividades'
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.book_online_outlined),
+            label: 'Pr do Dia'
+          ),
+        ],
+        onTap: (pagina) {
+          pc.animateToPage(
+            pagina,
+            duration: const Duration(milliseconds: 400),
+            curve: Curves.ease
+          );
+        },
+        backgroundColor: Colors.blue.shade50,
       ),
     );
   }

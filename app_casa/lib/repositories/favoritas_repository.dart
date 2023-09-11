@@ -14,6 +14,8 @@ class FavoritasRepository extends ChangeNotifier {
   UnmodifiableListView<Casa> get lista => UnmodifiableListView(_lista);
 
   saveall(List<Casa> casa) {
+    // ignore: prefer_typing_uninitialized_variables
+    var casas;
     casas.forEach((casa) {
       if (!_lista.contains(casa)) _lista.add(casa);
      });
