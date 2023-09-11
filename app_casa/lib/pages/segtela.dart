@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 // ignore: unused_import
 import '../models/casa.dart';
 // ignore: unused_import
+import 'favoritas_page.dart';
 import 'home_controller.dart';
 
 class HomeCasa extends StatefulWidget {
@@ -67,6 +68,15 @@ class _HomeCasaState extends State<HomeCasa> {
                 ),
               );
             },  
+          );
+          // ignore: dead_code
+          PageView(
+            controller: pc,
+            onPageChanged: setPaginaAtual,
+            children: const [
+              HomeCasa(),
+              FavoritasPage(),
+            ],
           );
         }, 
         separatorBuilder: (_, __) => const Divider(),

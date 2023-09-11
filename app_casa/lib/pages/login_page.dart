@@ -172,7 +172,7 @@ class LoginPage extends StatelessWidget {
                 textAlign: TextAlign.center,
                 ),
                 onPressed: () => {
-                  Navigator.pop(
+                  Navigator.push(
                     context,
                     MaterialPageRoute(
                       builder: (context) => const HomeCasa(),

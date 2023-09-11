@@ -36,8 +36,10 @@ class _FavoritasPageState extends State<FavoritasPage> {
             ListView.builder(
               itemCount: prioridades.lista.length,
               itemBuilder: (_, index) {
-                return CasaCard(casa: prioridades.lista[index]);
-              });
+                return CasaCard(casa: 
+                prioridades.lista[index]);
+              }
+            );
           },
         ),
       ),
