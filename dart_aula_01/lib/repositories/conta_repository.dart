@@ -1,7 +1,11 @@
-import 'package:flutter/foundation.dart';
-import 'package:sqflite/sqflite.dart';
 
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+import 'package:sqflite/sqflite.dart';
+import 'package:sqflite/sqlite_api.dart';
 import '../database/db.dart';
+// ignore: unused_import
+import '../models/moeda.dart';
 import '../models/posicao.dart';
 
 class ContaRepository extends ChangeNotifier {
@@ -16,7 +20,7 @@ class ContaRepository extends ChangeNotifier {
 
   ContaRepository() {
     _initRepository();
-  }
+  } 
 
   _initRepository() async {
     await _getSaldo();
@@ -24,12 +28,11 @@ class ContaRepository extends ChangeNotifier {
 
   _getSaldo() async {
     db = await DB.instance.database;
-    // ignore: unused_local_variabl
     List conta = await db.query('conta', limit:1);
     _saldo = conta.first['saldo'];
     notifyListeners();
-
   }
+
   setSaldo(double valor) async {
     db = DB.instance.database;
     db.update('conta', {

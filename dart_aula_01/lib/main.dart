@@ -1,5 +1,4 @@
-import 'package:dart_aula_01/meu_aplicativo.dart';
-import 'package:dart_aula_01/repositories/conta_repository.dart';
+ import 'package:dart_aula_01/repositories/conta_repository.dart';
 import 'package:dart_aula_01/repositories/favoritas_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

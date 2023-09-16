@@ -1,7 +1,4 @@
 // ignore: depend_on_referenced_packages, unused_import
-import 'dart:js_interop';
-
-
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 // ignore: unnecessary_import
@@ -18,16 +15,19 @@ class DB {
     if(_database != null) return _database;
 
     // ignore: await_only_futures
-    return await _initDatabase;
+    return await _initDatabase();
 
   }
 
+  // ignore: unused_element
   _initDatabase() async {
-    return await openDatabase(
+    _database = await openDatabase(
       join(await getDatabasesPath(), 'cripto.db'),
       version: 1,
       onCreate: _onCreate,
     );
+    // ignore: dead_code
+    return _database;
   }
 
   _onCreate(db, versao) async {
