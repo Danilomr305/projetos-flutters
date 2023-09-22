@@ -25,7 +25,7 @@ class _CarteiraPageState extends State<CarteiraPage> {
   String graficoLabel = '';
   List<Posicao> carteira = [];
 
-  @override
+  @override 
   Widget build(BuildContext context) {
     conta = context.watch<ContaRepository>();
     final loc = context.read<AppSettings>().locale;
