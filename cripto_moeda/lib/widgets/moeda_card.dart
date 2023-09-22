@@ -131,6 +131,3 @@ class _MoedaCardState extends State<MoedaCard > {
     );
   }
 }
-
-class Provider {
-}

@@ -1,5 +1,5 @@
-import 'package:dart_aula_01/pages/home_page.dart';
-import 'package:dart_aula_01/services/auth_service.dart';
+import '/pages/home_page.dart';
+import '/services/auth_service.dart';
 // ignore: unnecessary_import
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
