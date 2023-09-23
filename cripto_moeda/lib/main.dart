@@ -1,7 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import '../configs/app_settings.dart';
 import '../configs/hive_confing.dart';
 import '../repositories/conta_repository.dart';
