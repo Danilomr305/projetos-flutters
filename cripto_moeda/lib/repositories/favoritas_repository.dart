@@ -1,5 +1,6 @@
 import 'dart:collection';
 
+import 'package:cripto_moeda/services/auth_service.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -11,7 +12,7 @@ class FavoritasRepository extends ChangeNotifier {
   final List<Moeda> _lista = [];
   late LazyBox box;
 
-  FavoritasRepository() {
+  FavoritasRepository({required AuthService auth}) {
     _startRepository();
   }
 

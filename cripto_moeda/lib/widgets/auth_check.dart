@@ -1,17 +1,15 @@
-import '/pages/home_page.dart';
-import '/services/auth_service.dart';
-// ignore: unnecessary_import
-import 'package:flutter/cupertino.dart';
+import '../pages/home_page.dart';
+import '../pages/login_page.dart';
+import '../services/auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../pages/login_page.dart';
-
 class AuthCheck extends StatefulWidget {
-  const AuthCheck({super.key});
+  const AuthCheck({Key? key}) : super(key: key);
 
   @override
-  State<AuthCheck> createState() => _AuthCheckState();
+  // ignore: library_private_types_in_public_api
+  _AuthCheckState createState() => _AuthCheckState();
 }
 
 class _AuthCheckState extends State<AuthCheck> {
@@ -20,16 +18,15 @@ class _AuthCheckState extends State<AuthCheck> {
     AuthService auth = Provider.of<AuthService>(context);
 
     if (auth.isLoading) {
-      return loanding();
+      return loading();
     } else if (auth.usuario == null) {
-      // ignore: prefer_const_constructors
-      return  LoginPage();
+      return const LoginPage();
     } else {
       return const HomePage();
     }
   }
 
-  loanding() {
+  loading() {
     return const Scaffold(
       body: Center(
         child: CircularProgressIndicator(),

@@ -1,8 +1,9 @@
+// ignore: unused_import
+import '../pages/home_page.dart';
+// ignore: unused_import
 import '../widgets/auth_check.dart';
 import 'package:flutter/material.dart';
 
-// ignore: unused_import
-import 'pages/home_page.dart';
 class MeuAplicativo extends StatelessWidget {
   const MeuAplicativo({Key? key}) : super(key: key);
 
