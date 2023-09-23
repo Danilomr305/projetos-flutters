@@ -1,10 +1,10 @@
-import '../configs/app_settings.dart';
-import '../models/posicao.dart';
-import '../repositories/conta_repository.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
+import '../configs/app_settings.dart';
+import '../models/posicao.dart';
+import '../repositories/conta_repository.dart';
 
 class CarteiraPage extends StatefulWidget {
   const CarteiraPage({Key? key}) : super(key: key);
@@ -25,7 +25,7 @@ class _CarteiraPageState extends State<CarteiraPage> {
   String graficoLabel = '';
   List<Posicao> carteira = [];
 
-  @override 
+  @override
   Widget build(BuildContext context) {
     conta = context.watch<ContaRepository>();
     final loc = context.read<AppSettings>().locale;
@@ -116,7 +116,7 @@ class _CarteiraPageState extends State<CarteiraPage> {
                 child: PieChart(
                   PieChartData(
                     sectionsSpace: 5,
-                    centerSpaceRadius: 110,
+                    centerSpaceRadius: 120,
                     sections: loadCarteira(),
                     pieTouchData: PieTouchData(
                       touchCallback: (touch) => setState(() {
@@ -178,7 +178,7 @@ class _CarteiraPageState extends State<CarteiraPage> {
     });
   }
 
-  setGraficoDados(index) {
+  setGraficoDados(int index) {
     if (index < 0) return;
 
     if (index == carteira.length) {
