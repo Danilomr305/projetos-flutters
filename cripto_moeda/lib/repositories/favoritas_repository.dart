@@ -1,54 +1,72 @@
 import 'dart:collection';
-import 'package:cripto_moeda/services/auth_service.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter/material.dart';
-import 'package:hive_flutter/hive_flutter.dart';
-import '../adapters/moeda_hive_adapter.dart';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/cupertino.dart';
+
+import '../database/db_firestore.dart';
 import '../models/moeda.dart';
+import '../services/auth_service.dart';
+import 'moeda_repository.dart';
+
 
 class FavoritasRepository extends ChangeNotifier {
   final List<Moeda> _lista = [];
-  late LazyBox box;
+  late FirebaseFirestore db;
+  late AuthService auth;
 
-  FavoritasRepository({required AuthService auth}) {
+  FavoritasRepository({required this.auth}) {
     _startRepository();
   }
 
   _startRepository() async {
-    await _openBox();
+    await _startFirestore();
     await _readFavoritas();
   }
 
-  _openBox() async {
-    Hive.registerAdapter(MoedaHiveAdater());
-    box = await Hive.openLazyBox<Moeda>('moedas_favoritas');
+  _startFirestore() {
+    db = DBFirestore.get();
   }
 
+  _readFavoritas() async {
+    if (auth.usuario != null && _lista.isEmpty) {
+      final snapshot =
+          await db.collection('usuarios/${auth.usuario!.uid}/favoritas').get();
 
-  _readFavoritas() {
-    // ignore: avoid_function_literals_in_foreach_calls
-    box.keys.forEach((moeda) async { 
-      Moeda m = await box.get(moeda);
-      _lista.add(m);
-      notifyListeners();
-    });
+      for (var doc in snapshot.docs) {
+        Moeda moeda = MoedaRepository.tabela
+            .firstWhere((moeda) => moeda.sigla == doc.get('sigla'));
+        _lista.add(moeda);
+        notifyListeners();
+      }
+    }
   }
 
   UnmodifiableListView<Moeda> get lista => UnmodifiableListView(_lista);
 
-  saveAll(List<Moeda> moedas){
+  saveAll(List<Moeda> moedas) {
     // ignore: avoid_function_literals_in_foreach_calls
-    moedas.forEach((moeda) {
+    moedas.forEach((moeda) async {
       if (!_lista.any((atual) => atual.sigla == moeda.sigla)) {
-        box.put(moeda.sigla, moeda);
+        _lista.add(moeda);
+        await db
+            .collection('usuarios/${auth.usuario!.uid}/favoritas')
+            .doc(moeda.sigla)
+            .set({
+          'moeda': moeda.nome,
+          'sigla': moeda.sigla,
+          'preco': moeda.preco,
+        });
       }
     });
     notifyListeners();
   }
 
-  remove(Moeda moeda) {
+  remove(Moeda moeda) async {
+    await db
+        .collection('usuarios/${auth.usuario!.uid}/favoritas')
+        .doc(moeda.sigla)
+        .delete();
     _lista.remove(moeda);
-    box.delete(moeda.sigla);
     notifyListeners();
   }
 }

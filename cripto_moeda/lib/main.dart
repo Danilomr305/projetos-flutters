@@ -28,4 +28,4 @@ void main() async {
       child: const MeuAplicativo(),
     ),
   );
-}
+} 
