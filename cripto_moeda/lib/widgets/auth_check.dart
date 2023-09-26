@@ -17,13 +17,14 @@ class _AuthCheckState extends State<AuthCheck> {
   Widget build(BuildContext context) {
     AuthService auth = Provider.of<AuthService>(context);
 
-    if (auth.isLoading) {
+    if(auth.isLoading) {
       return loading();
-    } else if (auth.usuario == null) {
+    } else if (auth.usuario == null) 
+      // ignore: curly_braces_in_flow_control_structures
       return const LoginPage();
-    } else {
-      return const HomePage();
-    }
+    else 
+      // ignore: curly_braces_in_flow_control_structures
+      return  const HomePage();
   }
 
   loading() {

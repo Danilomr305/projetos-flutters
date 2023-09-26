@@ -44,6 +44,28 @@ class _LoginPageState extends State<LoginPage> {
     });
   }
 
+  login () async {
+    setState(() => loading = true);
+    try {
+      await context.read<AuthService>().login(email.text, senha.text);
+    } on AuthException catch (e) {
+      setState(() => loading = false);
+      ScaffoldMessenger.of(context)
+        .showSnackBar(SnackBar(content: Text(e.message)));
+    }
+  }
+
+  registrar () async {
+    setState(() => loading = true);
+    try {
+      await context.read<AuthService>().registrar(email.text, senha.text);
+    } on AuthException catch (e){
+      setState(() => loading = false);
+      ScaffoldMessenger.of(context)
+      .showSnackBar(SnackBar(content: Text(e.message)));
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -80,6 +102,73 @@ class _LoginPageState extends State<LoginPage> {
                     },
                   ),
                 ),
+                Padding(
+                  padding: const EdgeInsets.all(24),
+                  child: TextFormField(
+                    controller: senha,
+                    obscureText: true,
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Senha',
+                    ),
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'Informe a sua senha!';
+                      } else if (value.length < 6 ) {
+                        return 'Sua senha deve ter no minimo 6 caracteres';
+                      }
+                      return null;
+                    },
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(24.0),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      if (formKey.currentState!.validate()) {
+                        if (isLogin) {
+                          login();
+                        } else {
+                          registrar();
+                        }
+                      }
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: (loading)
+                      ? [
+                        const Padding(
+                          padding: EdgeInsets.all(16),
+                          child: SizedBox(
+                            width: 24,
+                            height: 24,
+                            child: CircularProgressIndicator(
+                              color: Colors.white,
+                            ),
+                          ),
+                          ),
+                      ]
+                      
+                      :[
+                        const Icon(Icons.check),
+                        Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Text(
+                            actionButton,
+                            style: const TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                TextButton(
+                  onPressed: () => setFormAction(!isLogin), 
+                  child: Text(toggleButton),
+                  ),
               ],
             ),
           ),
