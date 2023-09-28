@@ -1,13 +1,14 @@
 import 'dart:collection';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 import '../database/db_firestore.dart';
 import '../models/moeda.dart';
+// ignore: unused_import
+import '../adapters/moeda_hive_adapter.dart';
+import '../repositories/moeda_repository.dart';
 import '../services/auth_service.dart';
-import 'moeda_repository.dart';
-
 
 class FavoritasRepository extends ChangeNotifier {
   final List<Moeda> _lista = [];
@@ -32,12 +33,13 @@ class FavoritasRepository extends ChangeNotifier {
       final snapshot =
           await db.collection('usuarios/${auth.usuario!.uid}/favoritas').get();
 
-      for (var doc in snapshot.docs) {
+      // ignore: avoid_function_literals_in_foreach_calls
+      snapshot.docs.forEach((doc) {
         Moeda moeda = MoedaRepository.tabela
             .firstWhere((moeda) => moeda.sigla == doc.get('sigla'));
         _lista.add(moeda);
         notifyListeners();
-      }
+      });
     }
   }
 
