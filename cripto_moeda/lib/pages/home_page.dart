@@ -6,7 +6,7 @@ import 'configuracoes_page.dart';
 import 'favoritas_page.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+   const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
