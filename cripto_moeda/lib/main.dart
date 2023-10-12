@@ -14,7 +14,6 @@ void main() async {
 
   await Firebase.initializeApp();
   
-
   runApp(
     MultiProvider(
       providers: [ 
