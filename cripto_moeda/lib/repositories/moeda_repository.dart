@@ -1,99 +1,55 @@
-
-
+import 'package:flutter/material.dart';
+import 'package:sqflite/sqlite_api.dart';
+// ignore: unused_import
+import 'package:http/http.dart' as http;
+import '../database/db.dart';
 import '../models/moeda.dart';
 
-class MoedaRepository {
-  static List<Moeda> tabela = [
-    Moeda(
-      icone: 'images/bitcoin.png', 
-      nome: 'Bitcoin', 
-      sigla: 'BTC', 
-      preco: 164603.00,
-    ),
+class MoedaRepository extends ChangeNotifier {
+  // ignore: prefer_final_fields
+  List<Moeda> _tabela = [];
+  
+  List<Moeda> get tabela => _tabela;
 
-    Moeda(
-      icone: 'images/ethereum.png', 
-      nome: 'Ethereum', 
-      sigla: 'ETH', 
-      preco: 9716.00,
-    ),
+  MoedaRepository() {
+    _setupMoedasTable();
+    _setupDadosTableMoeda();
+  }
 
-    Moeda(
-      icone: 'images/xrp.png', 
-      nome: 'XRP', 
-      sigla: 'XRP', 
-      preco: 3.34,
-    ),  
+  _moedasTableIsEmpty() async{
+    Database db = await DB.instance.database;
+    List resultados = await db.query('moedas');
+    return resultados.isEmpty;
+  }
 
-    Moeda(
-      icone: 'images/usdcoin.png', 
-      nome: 'USD Coin', 
-      sigla: 'USDC', 
-      preco: 5.02,
-    ),
+  _setupDadosTableMoeda() async {
+    if (await _moedasTableIsEmpty()) {
+      // ignore: unused_local_variable
+      String uri = 'https://api.coinbase.com/v2/assets/search?base=BRL';
 
-    Moeda(
-      icone: 'images/cardano.png', 
-      nome: 'Cardano', 
-      sigla: 'ADA', 
-      preco: 6.32,
-    ),
-    
-    Moeda(
-      icone: 'images/litecoin.png', 
-      nome: 'Litecoin', 
-      sigla: 'LTC', 
-      preco: 669.93,
-    ),
+      // ignore: unused_local_variable
+      final response = await http.get(Uri.parse(uri));
+    }
+  }
 
-    Moeda(
-      icone: 'images/dogecoin.webp', 
-      nome: 'Dogecoin', 
-      sigla: 'DOGE', 
-      preco: 0.066545
-    
-    ),
-
-    Moeda(
-      icone: 'images/bnb.webp', 
-      nome: 'Bnb', 
-      sigla: 'BNB', 
-      preco: 223.50,
-    ),
-
-    Moeda(
-      icone: 'images/polygon.webp', 
-      nome: 'Polygon', 
-      sigla: 'MATIC', 
-      preco: 0.580,
-    ),
-
-    Moeda(
-      icone: 'images/shiba-inu.webp', 
-      nome: 'Shiba Inu', 
-      sigla: 'SHIB', 
-      preco: 0.00000820
-    ),
-
-    Moeda(
-      icone: 'images/wrapped-bitcoin.png', 
-      nome: 'Wrapped Bitcoin', 
-      sigla: 'WBTC', 
-      preco: 27.25700
-    ),
-
-    Moeda(
-      icone: 'images/unus-sed-leo.png', 
-      nome: 'Unus Sed Leo', 
-      sigla: 'LEO', 
-      preco: 3.9088
-    ),
-
-    Moeda(
-      icone: 'images/cosmos.png', 
-      nome: 'Cosmos', 
-      sigla: 'ATOM', 
-      preco: 7.2097
-    ),
-  ];
+  _setupMoedasTable() async {
+    const String table = '''
+      CREATE TABLE IF NOT EXISTS moedas (
+        baseId TEXT PRIMARY KEY,
+        sigla TEXT,
+        nome TEXT,
+        icone TEXT,
+        preco TEXT,
+        timestamp INTEGER,
+        mudancaHora TEXT,
+        mudancaDia TEXT,
+        mudancaSemana TEXT,
+        mudancaMes TEXT,
+        mudancaAno TExt,
+        mudancaPeriodoTotal TEXT
+      );
+    ''';
+    Database db = DB.instance.database;
+    await db.execute(table);
+  }
 }

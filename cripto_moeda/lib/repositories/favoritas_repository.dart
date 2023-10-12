@@ -1,12 +1,8 @@
 import 'dart:collection';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-
 import '../database/db_firestore.dart';
 import '../models/moeda.dart';
-// ignore: unused_import
-import '../adapters/moeda_hive_adapter.dart';
 import '../repositories/moeda_repository.dart';
 import '../services/auth_service.dart';
 
@@ -14,8 +10,9 @@ class FavoritasRepository extends ChangeNotifier {
   final List<Moeda> _lista = [];
   late FirebaseFirestore db;
   late AuthService auth;
+  MoedaRepository moedas;
 
-  FavoritasRepository({required this.auth}) {
+  FavoritasRepository({required this.auth, required this.moedas}) {
     _startRepository();
   }
 
@@ -35,7 +32,7 @@ class FavoritasRepository extends ChangeNotifier {
 
       // ignore: avoid_function_literals_in_foreach_calls
       snapshot.docs.forEach((doc) {
-        Moeda moeda = MoedaRepository.tabela
+        Moeda moeda = moedas.tabela
             .firstWhere((moeda) => moeda.sigla == doc.get('sigla'));
         _lista.add(moeda);
         notifyListeners();

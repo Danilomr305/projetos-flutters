@@ -2,6 +2,7 @@ import '../configs/app_settings.dart';
 import '../models/moeda.dart';
 import '../pages/moedas_detalhes_page.dart';
 import '../repositories/favoritas_repository.dart';
+// ignore: unused_import
 import '../repositories/moeda_repository.dart';
 import 'package:flutter/material.dart';
 // ignore: unused_import
@@ -16,10 +17,12 @@ class MoedasPage extends StatefulWidget {
 }
 
 class _MoedasPageState extends State<MoedasPage> {
+  late List<Moeda> tabela;
   late NumberFormat real;
   late Map<String, String> loc;
   List<Moeda> selecionadas = [];
   late FavoritasRepository favoritas;
+  late MoedaRepository moedas;
 
   readNumberFormat() {
     loc = context.watch<AppSettings>().locale;
@@ -107,10 +110,11 @@ class _MoedasPageState extends State<MoedasPage> {
   @override
   Widget build(BuildContext context) {
     favoritas = context.watch<FavoritasRepository>();
+    moedas = context.watch<MoedaRepository>();   
+    tabela = moedas.tabela;
     readNumberFormat();
 
     // ignore: unused_local_variable
-    final tabela = MoedaRepository.tabela;
     NumberFormat real = NumberFormat.currency(locale: 'pt_BR', name: 'R\$');
 
     return Scaffold(
@@ -130,7 +134,7 @@ class _MoedasPageState extends State<MoedasPage> {
               )
             : SizedBox(
               // ignore: sort_child_properties_last
-              child: Image.asset(tabela[moeda].icone),
+              child: Image.network(tabela[moeda].icone),
               width: 50,
               ),
               title: Row(

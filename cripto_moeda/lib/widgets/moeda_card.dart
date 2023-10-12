@@ -59,7 +59,7 @@ class _MoedaCardState extends State<MoedaCard > {
         ),
         child: Row(
           children: [
-            Image.asset(
+            Image.network(
               widget.moeda.icone,
               height: 40,
             ),
