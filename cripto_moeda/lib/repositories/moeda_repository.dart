@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:sqflite/sqlite_api.dart';
 // ignore: unused_import
@@ -29,6 +31,35 @@ class MoedaRepository extends ChangeNotifier {
 
       // ignore: unused_local_variable
       final response = await http.get(Uri.parse(uri));
+
+      if (response.statusCode == 200) {
+        final json = jsonDecode(response.body);
+        final List<dynamic> moedas = json['data'];
+        Database db = await DB.instance.database;
+        // ignore: unused_local_variable
+        Batch batch = db.batch();
+
+        // ignore: avoid_function_literals_in_foreach_calls
+        moedas.forEach((moeda) {
+          final preco = moeda['latest_price'];
+          final timestamp = DateTime.parse(preco['timestamp']);
+
+          batch.insert('moedas', {
+            'baseId': moeda['id'],
+            'sigla': moeda['symbol'],
+            'nome': moeda['name'],
+            'icone': moeda ['image_url'],
+            'preco': moeda ['latest'],
+            'timestamp': timestamp.millisecondsSinceEpoch,
+            'mudancaHora': preco['percent_change']['hour'].toString(),
+            'mudancaDia': preco['percent_change']['day'].toString(),
+            'mudancaSemana': preco['percent_change']['week'].toString(),
+            'mudancaMes': preco['percent_change']['month'].toString(),
+            'mudancaAno': preco['percent_change']['year'].toString(),
+            'mudancaPeriodoTotal': preco['percent_change']['all'].toString(),
+          });
+        });
+      }
     }
   }
 
