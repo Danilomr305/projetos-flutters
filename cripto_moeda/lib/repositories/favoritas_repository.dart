@@ -1,13 +1,15 @@
 import 'dart:collection';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/material.dart';
-import '../database/db_firestore.dart';
+import '../databases/db_firestore.dart';
 import '../models/moeda.dart';
 import '../repositories/moeda_repository.dart';
 import '../services/auth_service.dart';
+import 'package:flutter/material.dart';
 
 class FavoritasRepository extends ChangeNotifier {
-  final List<Moeda> _lista = [];
+  // ignore: prefer_final_fields
+  List<Moeda> _lista = [];
   late FirebaseFirestore db;
   late AuthService auth;
   MoedaRepository moedas;
@@ -27,16 +29,22 @@ class FavoritasRepository extends ChangeNotifier {
 
   _readFavoritas() async {
     if (auth.usuario != null && _lista.isEmpty) {
-      final snapshot =
-          await db.collection('usuarios/${auth.usuario!.uid}/favoritas').get();
+      try {
+        final snapshot = await db
+            .collection('usuarios/${auth.usuario!.uid}/favoritas')
+            .get();
 
-      // ignore: avoid_function_literals_in_foreach_calls
-      snapshot.docs.forEach((doc) {
-        Moeda moeda = moedas.tabela
-            .firstWhere((moeda) => moeda.sigla == doc.get('sigla'));
-        _lista.add(moeda);
-        notifyListeners();
-      });
+        // ignore: avoid_function_literals_in_foreach_calls
+        snapshot.docs.forEach((doc) {
+          Moeda moeda = moedas.tabela
+              .firstWhere((moeda) => moeda.sigla == doc.get('sigla'));
+          _lista.add(moeda);
+          notifyListeners();
+        });
+      } catch (e) {
+        // ignore: avoid_print
+        print('Sem id de usuário');
+      }
     }
   }
 

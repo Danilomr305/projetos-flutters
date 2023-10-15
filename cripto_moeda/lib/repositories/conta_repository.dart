@@ -1,23 +1,21 @@
 import '../database/db.dart';
+import '../models/historico.dart';
 import '../models/moeda.dart';
 import '../models/posicao.dart';
 import '../repositories/moeda_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:sqflite/sqlite_api.dart';
-// ignore: unused_import
-import '../models/historico.dart';
 
 class ContaRepository extends ChangeNotifier {
   late Database db;
   List<Posicao> _carteira = [];
-  // ignore: prefer_final_fields
   List<Historico> _historico = [];
   double _saldo = 0;
   MoedaRepository moedas;
 
   get saldo => _saldo;
   List<Posicao> get carteira => _carteira;
-  List<Historico> get historico => _historico; 
+  List<Historico> get historico => _historico;
 
   ContaRepository({required this.moedas}) {
     _initRepository();
@@ -27,7 +25,6 @@ class ContaRepository extends ChangeNotifier {
     await _getSaldo();
     await _getCarteira();
     await _getHistorico();
-   
   }
 
   _getSaldo() async {
@@ -43,6 +40,51 @@ class ContaRepository extends ChangeNotifier {
       'saldo': valor,
     });
     _saldo = valor;
+    notifyListeners();
+  }
+
+  comprar(Moeda moeda, double valor) async {
+    db = await DB.instance.database;
+    await db.transaction((txn) async {
+      // Verificar se a moeda já foi comprada
+      final posicaoMoeda = await txn.query(
+        'carteira',
+        where: 'sigla = ?',
+        whereArgs: [moeda.sigla],
+      );
+      // Se não tem a moeda em carteira
+      if (posicaoMoeda.isEmpty) {
+        await txn.insert('carteira', {
+          'sigla': moeda.sigla,
+          'moeda': moeda.nome,
+          'quantidade': (valor / moeda.preco).toString()
+        });
+      }
+      // Já tem a moeda em carteira
+      else {
+        final atual = double.parse(posicaoMoeda.first['quantidade'].toString());
+        await txn.update(
+          'carteira',
+          {'quantidade': (atual + (valor / moeda.preco)).toString()},
+          where: 'sigla = ?',
+          whereArgs: [moeda.sigla],
+        );
+      }
+
+      // Inserir a compra no historico
+      await txn.insert('historico', {
+        'sigla': moeda.sigla,
+        'moeda': moeda.nome,
+        'quantidade': (valor / moeda.preco).toString(),
+        'valor': valor,
+        'tipo_operacao': 'compra',
+        'data_operacao': DateTime.now().millisecondsSinceEpoch
+      });
+
+      //Atualizar o saldo
+      await txn.update('conta', {'saldo': saldo - valor});
+    });
+    await _initRepository();
     notifyListeners();
   }
 
@@ -72,58 +114,15 @@ class ContaRepository extends ChangeNotifier {
       );
       _historico.add(
         Historico(
-          dataOperacao: DateTime.fromMillisecondsSinceEpoch(operacao['data_operacao']),
+          dataOperacao:
+              DateTime.fromMillisecondsSinceEpoch(operacao['data_operacao']),
+          tipoOperacao: operacao['tipo_operacao'],
           moeda: moeda,
           valor: operacao['valor'],
-          quantidade: double.parse(operacao['quantidade']), 
-          tipoOperacao: '', 
+          quantidade: double.parse(operacao['quantidade']),
         ),
       );
     });
-    notifyListeners();
-  }
-
-  comprar(Moeda moeda, double valor) async {
-    db = await DB.instance.database;
-
-    await db.transaction((txn) async {
-      // Verificar se a moeda já foi comprada
-      final posicaoMoeda = await txn.query(
-        'carteira',
-        where: 'sigla = ?',
-        whereArgs: [moeda.sigla],
-      );
-      // Se não tem a moeda ainda, insert
-      if (posicaoMoeda.isEmpty) {
-        await txn.insert('carteira', {
-          'sigla': moeda.sigla,
-          'moeda': moeda.nome,
-          'quantidade': (valor / moeda.preco).toString()
-        });
-      } else {
-        final atual = double.parse(posicaoMoeda.first['quantidade'].toString());
-        await txn.update(
-          'carteira',
-          {'quantidade': ((valor / moeda.preco) + atual).toString()},
-          where: 'sigla = ?',
-          whereArgs: [moeda.sigla],
-        );
-      }
-
-      // Inserir o histórico
-      await txn.insert('historico', {
-        'sigla': moeda.sigla,
-        'moeda': moeda.nome,
-        'quantidade': (valor / moeda.preco).toString(),
-        'valor': valor,
-        'tipo_operacao': 'compra',
-        'data_operacao': DateTime.now().millisecondsSinceEpoch
-      });
-
-      await txn.update('conta', {'saldo': saldo - valor});
-    });
-
-    await _initRepository();
     notifyListeners();
   }
 }
