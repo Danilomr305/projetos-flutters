@@ -17,12 +17,12 @@ class MoedaRepository extends ChangeNotifier {
     _setupMoedasTable();
     _setupDadosTableMoeda();
     _readMoedasTable();
-    // _refreshPrecos();
+    _refreshPrecos();
   }
 
-  // _refreshPrecos() async {
-  //   intervalo = Timer.periodic(Duration(minutes: 5), (_) => checkPrecos());
-  // }
+  _refreshPrecos() async {
+     intervalo = Timer.periodic(const Duration(minutes: 5), (_) => checkPrecos());
+  }
 
   getHistoricoMoeda(Moeda moeda) async {
     final response = await http.get(

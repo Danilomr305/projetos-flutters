@@ -119,59 +119,62 @@ class _MoedasPageState extends State<MoedasPage> {
 
     return Scaffold(
       appBar: appBarDinamica(),
-      body: ListView.separated(
-        itemBuilder: (BuildContext context, int moeda) {
-          return ListTile(
-            shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(12),
+      body: RefreshIndicator(
+        onRefresh: () => moedas.checkPrecos(),
+        child: ListView.separated(
+          itemBuilder: (BuildContext context, int moeda) {
+            return ListTile(
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(12),
+                ),
               ),
-            ),
-            // ignore: sort_child_properties_last
-            leading: 
-            (selecionadas.contains(tabela[moeda]))
-              ? const CircleAvatar(
-                child: Icon(Icons.check),
-              )
-            : SizedBox(
               // ignore: sort_child_properties_last
-              child: Image.network(tabela[moeda].icone),
-              width: 50,
-              ),
-              title: Row(
-                children: [
-                  Text(
-                    tabela[moeda].nome, 
-                  style: const 
-                    TextStyle(
-                      fontSize: 17,
-                      fontWeight: FontWeight.w500,
+              leading: 
+              (selecionadas.contains(tabela[moeda]))
+                ? const CircleAvatar(
+                  child: Icon(Icons.check),
+                )
+              : SizedBox(
+                // ignore: sort_child_properties_last
+                child: Image.network(tabela[moeda].icone),
+                width: 50,
+                ),
+                title: Row(
+                  children: [
+                    Text(
+                      tabela[moeda].nome, 
+                    style: const 
+                      TextStyle(
+                        fontSize: 17,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
-                  ),
-                  // ignore: sdk_version_ui_as_code
-                  if (favoritas.lista.any((fav) => fav.sigla == tabela[moeda].sigla))  
-                    const Icon(Icons.circle, color: Colors.amber, size: 8,)
-                ],
+                    // ignore: sdk_version_ui_as_code
+                    if (favoritas.lista.any((fav) => fav.sigla == tabela[moeda].sigla))  
+                      const Icon(Icons.circle, color: Colors.amber, size: 8,)
+                  ],
+                ),
+              trailing: 
+              Text(
+                real.format(tabela[moeda].preco
+                ),
               ),
-            trailing: 
-            Text(
-              real.format(tabela[moeda].preco
-              ),
-            ),
-            selected: selecionadas.contains(tabela[moeda]),
-            selectedTileColor: Colors.indigo,
-            onLongPress: () {
-              setState(() {
-                (selecionadas.contains(tabela[moeda]))
-                    ? selecionadas.remove(tabela[moeda])
-                    : selecionadas.add(tabela[moeda]);
-              });
-            },
-            onTap: () => mostrarDetalhes(tabela[moeda]),
-          );
-        }, 
-        padding: const EdgeInsets.all(16),
-        separatorBuilder: (_, ___) => const Divider(), 
-        itemCount: tabela.length
+              selected: selecionadas.contains(tabela[moeda]),
+              selectedTileColor: Colors.indigo,
+              onLongPress: () {
+                setState(() {
+                  (selecionadas.contains(tabela[moeda]))
+                      ? selecionadas.remove(tabela[moeda])
+                      : selecionadas.add(tabela[moeda]);
+                });
+              },
+              onTap: () => mostrarDetalhes(tabela[moeda]),
+            );
+          }, 
+          padding: const EdgeInsets.all(16),
+          separatorBuilder: (_, ___) => const Divider(), 
+          itemCount: tabela.length
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: selecionadas.isNotEmpty ?

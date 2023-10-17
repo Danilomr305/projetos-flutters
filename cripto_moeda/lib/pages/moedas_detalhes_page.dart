@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import '../models/moeda.dart';
 import '../repositories/conta_repository.dart';
+import '../widgets/grafico_historico.dart';
 
 // ignore: must_be_immutable
 class MoedasDetalhesPage extends StatefulWidget {
@@ -24,6 +25,16 @@ class _MoedasDetalhesPageState extends State<MoedasDetalhesPage> {
   final _valor = TextEditingController();
   double quatidade = 0;
   late ContaRepository conta;
+  Widget grafico = Container();
+  bool graficoLoaded = false;  
+
+  getGrafico() {
+    if (!graficoLoaded){
+      grafico = GraficoHistorico(moeda: widget.moeda);
+      graficoLoaded = true;
+    }
+    return grafico;
+  }
 
   comprar() async {
     if(_form.currentState!.validate()) {
@@ -76,6 +87,7 @@ class _MoedasDetalhesPageState extends State<MoedasDetalhesPage> {
                   ],
                 ),
               ),
+              getGrafico(),
               (quatidade > 0 )
               ? SizedBox(
                 width: MediaQuery.of(context).size.width,
