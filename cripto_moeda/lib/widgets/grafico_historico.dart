@@ -96,6 +96,63 @@ class _GraficoHistoricoState extends State<GraficoHistorico> {
             ),
           )
         ],
+        lineTouchData: LineTouchData(
+          touchTooltipData: LineTouchTooltipData(
+            tooltipBgColor: const Color(0xFF343434),
+            getTooltipItems: (data) {
+              return data.map((item) {
+                final date = getDate(item.spotIndex);
+                return LineTooltipItem(
+                  real.format(item.y),
+                  const TextStyle(
+                    color: Colors.white,
+                    fontSize: 15,
+                    fontWeight: FontWeight.w600
+                  ),
+                  children: [
+                    TextSpan(
+                      text: '\n $date',
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: Colors.white.withOpacity(.5),
+                      ),
+                    ),
+                  ]
+                );
+              }).toList();
+            }
+          ),
+        ),
+      );
+    }
+
+    getDate(int index) {
+      DateTime date = dadosCompletos[index][1];
+      if (periodo != Periodo.ano && periodo != Periodo.total)
+        return DateFormat('dd/MM - hh:mm').format(date);
+      else 
+        return DateFormat('dd/MM/y').format(date);
+    }
+
+    chartButton(Periodo p, String label) {
+      return Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 4
+        )   ,
+        child: OutlinedButton(
+          onPressed: () => setState(()
+            => periodo = p
+          ), 
+          // ignore: sort_child_properties_last
+          child: Text(label),
+          style: (periodo != p)
+          ? ButtonStyle(
+            foregroundColor: MaterialStateProperty.all(Colors.grey),
+          )
+          : ButtonStyle(
+            backgroundColor:  MaterialStateProperty.all(Colors.indigo.shade50),
+          ),
+        ),
       );
     }
 
@@ -112,17 +169,33 @@ class _GraficoHistoricoState extends State<GraficoHistorico> {
         aspectRatio: 2,
         child: Stack(
           children: [
-            ValueListenableBuilder(
-              valueListenable: loaded, 
-              builder: (context, bool isLoaded, _) {
-                return (isLoaded)
-                ? LineChart(
-                  getChardData(),
-                )
-                : const Center(
-                  child: CircularProgressIndicator(),
-                );
-              }
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  chartButton(Periodo.hora, '1H'),
+                  chartButton(Periodo.dia, '24H'),
+                  chartButton(Periodo.semana, '7D'),
+                  chartButton(Periodo.mes, 'Mês'),
+                  chartButton(Periodo.ano, 'Ano'),
+                  chartButton(Periodo.total, 'Tudo'),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 80),
+              child: ValueListenableBuilder(
+                valueListenable: loaded, 
+                builder: (context, bool isLoaded, _) {
+                  return (isLoaded)
+                  ? LineChart(
+                    getChardData(),
+                  )
+                  : const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+              ),
             ),
           ],
         ),
