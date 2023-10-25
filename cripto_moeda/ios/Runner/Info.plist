@@ -47,5 +47,10 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<Key>NSAppTransportSecurity</Key>
+	<dict>
+	    <key>NASllowsLocalNetworKing</Key>
+		<true/>
+    <dict>
 </dict>
 </plist>
