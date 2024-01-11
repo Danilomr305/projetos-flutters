@@ -23,7 +23,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   setPaginaAtual(pagina) {
-    setState(() {
+    super.setState(() {
       paginaAtual = pagina;
     });
   }
